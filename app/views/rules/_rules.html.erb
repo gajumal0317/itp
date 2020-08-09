@@ -1,0 +1,24 @@
+<ul class="list-unstyled">
+  <% rules.each do |rule| %>
+    <li class="card">
+      <div class="card-body">
+        <div>
+          <%= link_to rule.user.name, user_path(rule.user) %> <span class="text-muted">created at <%= rule.created_at %></span>
+        </div>
+        <div>
+          <p>if: <%= rule.if_rule %></p>
+        </div>
+        <div>
+          <p>then: <%= rule.then_rule %></p>
+        </div>
+        <div class="dropdown">
+          <button type="button" id="dropdown1"class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"></button>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li class="dropdown-item"><%= link_to "Delete", rule, method: :delete, data: { confirm: "You sure?" }%></li>
+          </ul>
+        </div>
+      </div>
+    </li>
+  <% end %>
+  <%= paginate rules %>
+</ul>

@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @rules = @user.rules.order(id: :desc).page(params[:page])
   end
 
   def new
