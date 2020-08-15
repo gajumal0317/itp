@@ -1,2 +1,19 @@
-<h1>Rules#edit</h1>
-<p>Find me in app/views/rules/edit.html.erb</p>
+<div class="elements">
+<%= form_with(model: @rule, local: true) do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+    <div class="form-group">
+        <h5><%= f.label :if_rule, 'if' %></h5>
+        <%= f.text_area :if_rule, class: 'form-control', rows:2 %>
+    </div>
+    <div class="form-group"> 
+        <h5><%= f.label :then_rule, 'then' %></h5>
+        <%= f.text_area :then_rule, class: 'form-control', rows:2 %>
+    </div>
+    <div class="form-group"> 
+        <h5><%= f.label :master, 'status' %></h5>
+        <%=  f.select :master, [['challenging',0],['master',1]], {}, class: 'form-control', id: 'rule_master'%>        
+    </div>
+    
+    <%= f.submit 'Create Rule', class: 'btn btn-primary btn-block' %>
+<% end %>
+</div>

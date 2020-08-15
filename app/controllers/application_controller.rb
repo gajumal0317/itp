@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+  def counts(user)
+    @count_challenging_rules = user.rules.where(master: 0).count
+    @count_master_rules = user.rules.where(master: 1).count
+  end
+
 end

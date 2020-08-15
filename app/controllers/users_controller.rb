@@ -1,14 +1,21 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show]
+  before_action :require_user_logged_in, only: [:index, :show, :master]
   def index
     @users = User.order(id: :desc).page(params[:page]).per(10)
   end
 
   def show
     @user = User.find(params[:id])
-    @rules = @user.rules.order(id: :desc).page(params[:page])
+    @rules = @user.rules.order(id: :desc).page(params[:page]).per(10)
+    counts(@user)
   end
-
+  
+  def master
+    @user = User.find(params[:id])
+    @rules = @user.rules.order(id: :desc).page(params[:page]).per(10)
+    counts(@user)  
+  end
+  
   def new
     @user = User.new
   end
@@ -24,7 +31,8 @@ class UsersController < ApplicationController
       render :new
     end
   end
-
+   
+  
   private
 
   def user_params

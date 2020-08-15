@@ -1,0 +1,16 @@
+  <% if current_user.like?(rule) %>
+    <%= form_with(model: current_user.favorites.find_by(rule_id: rule.id), local: true, method: :delete) do |f| %>
+      <%= hidden_field_tag :rule_id, rule.id %>
+      <button type="submit" class="d-inline btn btn-link btn-lg">
+        <i class="fas fa-thumbs-up" style="color: royalblue;"></i>
+      </button>    
+    <% end %>
+  <% else %>
+    <%= form_with(model: current_user.favorites.build, local: true) do |f| %>
+      <%= hidden_field_tag :rule_id, rule.id %>
+      <button type="submit" class="d-inline btn btn-link btn-lg">
+        <i class="far fa-thumbs-up" style="color: royalblue;"></i>
+      </button>
+    <% end %>
+  <% end %>
+  

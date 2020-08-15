@@ -6,4 +6,19 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   has_many :rules
+  has_many :favorites
+  has_many :likes, through: :favorites, source: :rule
+  
+  def favorite(rule)
+    self.favorites.find_or_create_by(rule_id: rule.id)
+  end
+   
+  def unfavorite(rule)
+    favorite = favorites.find_by(rule_id: rule.id)
+    favorite.destroy if favorite
+  end
+        
+  def like?(rule)
+    self.likes.include?(rule)
+  end
 end

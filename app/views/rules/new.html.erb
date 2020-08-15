@@ -1,11 +1,14 @@
+<div class="elements">
 <%= form_with(model: @rule, local: true) do |f| %>
     <div class="form-group">
-        <%= f.label :if_rule, 'if' %>
+        <h5><%= f.label :if_rule, 'if' %></h5>
         <%= f.text_area :if_rule, class: 'form-control', rows:2 %>
     </div>
     <div class="form-group"> 
-        <%= f.label :then_rule, 'then' %>
+        <h5><%= f.label :then_rule, 'then' %></h5>
         <%= f.text_area :then_rule, class: 'form-control', rows:2 %>
     </div>
+    <%=f.hidden_field :master,:value => 0, id: 'rule_master' %> 
     <%= f.submit 'Create Rule', class: 'btn btn-primary btn-block' %>
 <% end %>
+</div>

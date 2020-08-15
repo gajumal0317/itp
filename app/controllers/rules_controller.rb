@@ -1,6 +1,16 @@
 class RulesController < ApplicationController
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  
+  def index
+    @rules = Rule.order(id: :desc).page(params[:page]).per(10)
+    @rules_sort = Rule.sort()
+  end
+  
+  def search
+    selection = params[:rule][:keyword]
+    @rules_sort = Rule.sort(selection)
+  end
   
   def new
     @rule = current_user.rules.build
@@ -21,6 +31,16 @@ class RulesController < ApplicationController
   def edit
   end
 
+  def update
+    if @rule.update(rule_params)
+      flash[:success] = 'ルールは正常に更新されました'
+      redirect_to user_path(current_user.id)
+    else
+      flash.now[:danger] = 'ルールは更新されませんでした'
+      render :edit
+    end
+  end
+
   def destroy
     @rule.destroy
     flash[:success] = 'ルールを削除しました。'
@@ -30,7 +50,7 @@ class RulesController < ApplicationController
   private
 
   def rule_params
-    params.require(:rule).permit(:if_rule,:then_rule)
+    params.require(:rule).permit(:if_rule, :then_rule, :master)
   end
   
   def correct_user

@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+ .container {
+  max-width: initial;
+  margin: 0;
+  padding: 0;
+ }
+ 
+ .header-nav-link {
+  color: #fff;
+  display: block;
+  padding: .5rem 1rem;
+ }
+ 
+.header-nav {
+    margin-bottom: 0rem!important;
+}
+ 
+ .elements {
+    max-width: 1000px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1.5rem!important;
+    background-color: blue;
+}
+ 

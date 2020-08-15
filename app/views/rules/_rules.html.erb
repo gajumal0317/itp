@@ -1,24 +1,37 @@
 <ul class="list-unstyled">
   <% rules.each do |rule| %>
     <li class="card">
+      <h7 class="card-header">
+        <%= link_to rule.user.name, user_path(rule.user) %> <span class="text-muted">created at <%= rule.created_at %></span>
+        <div class="right_box">
+          <div class="dropdown dropright">
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown"></button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li class="dropdown-item"><%= link_to "Delete", rule, method: :delete, data: { confirm: "You sure?" }%></li>
+                  <li class="dropdown-item"><%= link_to "Edit", edit_rule_path(rule) %></li>          
+                </ul>
+          </div>
+        </div>
+      </h7>
       <div class="card-body">
-        <div>
-          <%= link_to rule.user.name, user_path(rule.user) %> <span class="text-muted">created at <%= rule.created_at %></span>
+        <h5>if</h5>
+        <div class="card">
+          <div class="card-body">
+            <%= rule.if_rule %>
+          </div>
         </div>
-        <div>
-          <p>if: <%= rule.if_rule %></p>
+        <h5>then</h5>
+        <div class="card">
+          <div class="card-body">
+            <%= rule.then_rule %>
+          </div>
         </div>
-        <div>
-          <p>then: <%= rule.then_rule %></p>
-        </div>
-        <div class="dropdown">
-          <button type="button" id="dropdown1"class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"></button>
-          <ul class="dropdown-menu dropdown-menu-right">
-            <li class="dropdown-item"><%= link_to "Delete", rule, method: :delete, data: { confirm: "You sure?" }%></li>
-          </ul>
-        </div>
+            <div class="flex_test">
+                <div><%= render 'favorites/favorite_button', rule: rule%></div>
+                <div class="badge badge-primary align-self-center"><%= Favorite.where(rule_id: rule.id).count %></div>
+                
+            </div>
       </div>
-    </li>
+    </li> 
   <% end %>
-  <%= paginate rules %>
 </ul>

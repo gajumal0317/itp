@@ -1,0 +1,36 @@
+.hero {
+  height: 100vh; /* 全画面表示 */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-image: url("https://img4.xooimage.com/files/9/6/1/01460_sundaymorni...1920x1080-d1c6b0.jpg");
+ }
+
+/* テキスト */
+
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+.title {
+  font-family: Roboto;
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 1.2;
+  padding: 0 50px;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.4); 
+}
+.description {
+  color: white;
+  text-align: right;
+  margin-right: 20px;
+}
+ 
