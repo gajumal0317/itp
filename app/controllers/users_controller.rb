@@ -6,13 +6,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @rules = @user.rules.order(id: :desc).page(params[:page]).per(10)
+    @rules = @user.rules.order(id: :desc).page(params[:page]).per(5)
     counts(@user)
   end
   
   def master
     @user = User.find(params[:id])
-    @rules = @user.rules.order(id: :desc).page(params[:page]).per(10)
+    @rules = @user.rules.order(id: :desc).page(params[:page]).per(5)
     counts(@user)  
   end
   

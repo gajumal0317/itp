@@ -1,3 +1,4 @@
+<div class="elements-bg">
 <div class="elements">
 <%= form_with(model: @rule, local: true) do |f| %>
     <div class="form-group">
@@ -11,4 +12,5 @@
     <%=f.hidden_field :master,:value => 0, id: 'rule_master' %> 
     <%= f.submit 'Create Rule', class: 'btn btn-primary btn-block' %>
 <% end %>
+</div>
 </div>

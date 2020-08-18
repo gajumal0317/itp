@@ -1,11 +1,11 @@
-<%#図を挿入%>
-
+<div class="hero">
+<div class="signup">
 <div class="text-center">
   <h1>Sign up</h1>
 </div>
 
 <div class="row">
-  <div class="col-sm-6 offset-sm-3">
+  <div class="col-sm-10 offset-sm-1" style="font-weight: 600;">
 
     <%= form_with(model: @user, local: true) do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
@@ -32,4 +32,6 @@
       <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
     <% end %>
   </div>
+</div>
+</div>
 </div>

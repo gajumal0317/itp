@@ -14,7 +14,11 @@ Rails.application.routes.draw do
      get :likes
    end
  end
- get 'search', to: 'rules#search'
- resources :rules, only: [:index, :new, :create, :edit, :update, :destroy]
+
+ resources :rules, only: [:index, :new, :create, :edit, :update, :destroy] do
+    collection do
+       get :search
+    end
+ end
  resources :favorites, only: [:create, :destroy]
 end

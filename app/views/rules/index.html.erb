@@ -1,15 +1,19 @@
+<div class="elements-bg">
 <div class="elements">
-<h1>投稿一覧</h1> 
-<%= form_with(model: @rules_sort, url: search_path, method: :get, local: true) do |f| %>
-<%= f.select :keyword, [ ['投稿が新しい順', 'new'],
-                            ['投稿が古い順', 'old'],
-                            ['いいねが多い順', 'likes'],
-                            ['いいねが少ない順', 'dislikes'],
-                          ]%>
-<%= f.submit 'Sort', class: 'btn btn-primary btn-sm' %>
-
-<% end %>
+    <div style="text-align: center;">
+        <h2>投稿一覧</h2> 
+        <div class = search_wap>
+        <%= search_form_for @search, url: search_rules_path do |f|%>
+            <%= f.text_field :if_rule_cont , placeholder: "キーワードで検索！", class: 'input'%>
+            <button_tag type= 'submit' class='search__button icon_wap'>
+                <i class = "fas fa-search"></i>
+            <button_tag>
+        <% end %>
+        </div>
+    </div>
 <div class="card-body">
     <%= render 'rules/rules', rules: @rules %> 
+    <%= paginate @rules %>
 </div>　
+</div>
 </div>

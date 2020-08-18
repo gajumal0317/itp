@@ -3,13 +3,10 @@ class RulesController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
-    @rules = Rule.order(id: :desc).page(params[:page]).per(10)
-    @rules_sort = Rule.sort()
+    @rules = Rule.order(id: :desc).page(params[:page]).per(5)
   end
   
   def search
-    selection = params[:rule][:keyword]
-    @rules_sort = Rule.sort(selection)
   end
   
   def new

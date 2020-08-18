@@ -1,9 +1,10 @@
+<div class="hero">
+<div class="login">
 <div class="text-center">
   <h1>Log in</h1>
 </div>
-
 <div class="row">
-  <div class="col-sm-6 offset-sm-3">
+  <div class="col-sm-10 offset-sm-1" style="font-weight: 600;">
 
     <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
 
@@ -22,4 +23,6 @@
 
     <p>New user? <%= link_to 'Sign up now!', signup_path %></p>
   </div>
+</div>
+</div>
 </div>

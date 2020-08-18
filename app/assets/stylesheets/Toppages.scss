@@ -1,5 +1,6 @@
 .hero {
-  height: 100vh; /* 全画面表示 */
+  min-height: 100vh; /* 全画面表示 */
+  background-attachment: fixed; /* 画面固定 */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;

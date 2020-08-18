@@ -1,5 +1,13 @@
 class ApplicationController < ActionController::Base
  include SessionsHelper
+ before_action :set_search
+ 
+def set_search
+  @search = Rule.ransack(params[:q])
+  @search_rules = @search.result(distinct: true).order(created_at: "DESC").includes(:user).page(params[:page]).per(5)
+end
+ 
+ 
  private
 
   def require_user_logged_in

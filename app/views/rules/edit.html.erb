@@ -1,3 +1,4 @@
+<div class="elements-bg">
 <div class="elements">
 <%= form_with(model: @rule, local: true) do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
@@ -16,4 +17,5 @@
     
     <%= f.submit 'Create Rule', class: 'btn btn-primary btn-block' %>
 <% end %>
+</div>
 </div>
