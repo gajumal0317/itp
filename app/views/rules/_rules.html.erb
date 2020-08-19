@@ -1,6 +1,6 @@
 <ul class="list-unstyled">
   <% rules.each do |rule| %>
-    <li class="card">
+    <li class="card rule-bottom">
       <h7 class="card-header">
         <%= link_to rule.user.name, user_path(rule.user) %> <span class="text-muted">created at <%= rule.created_at %></span>
         <div class="right_box">

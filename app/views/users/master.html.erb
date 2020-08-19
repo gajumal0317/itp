@@ -6,7 +6,7 @@
       <li class="nav-item"><a href="<%= rules_path %>" class="nav-link-test">Others rules</a></li>
       <li class="nav-item"><a href="<%= new_rule_path(current_user) %>" class="nav-link-test">New rule</a></li>
     </ul>
-    <div class="card">
+    <div class="card rule-bg">
       <%= render 'rules/rules', rules: @rules.where(master: 1) %> 
       <%= paginate @rules %>
     </div>
