@@ -34,4 +34,24 @@
   text-align: right;
   margin-right: 20px;
 }
+
+.explain-bg {
+  min-height: 100vh; /* 全画面表示 */
+  background-attachment: fixed; /* 画面固定 */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-image: url("https://www.itl.cat/pngfile/big/302-3028433_road-bike-wallpaper-px-black-and-white-bicycle.jpg");
+ }
+
+
+.explain-box {
+  color: black;
+  
+  padding-top: 5%;
+  padding-left: 20px;
+  padding-right: 45%;
+  padding-bottom: 20%;
+  background-color: rgba(255, 255, 255, 0.6); 
+}
  

@@ -3,14 +3,14 @@
 <% if @users.any? %>
   <ul class="list-unstyled">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4" style="display :contents;">
     <% @users.each do |user| %>
       <li class="card users_cards">
         <h7 class="card-header">
             <%= user.name %>
         </h7>
         <div class="card-body">
-          <%= link_to 'View profile', user_path(user) %>
+          <%= link_to 'View rules', user_path(user) %>
         </div>
       
       </li>

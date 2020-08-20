@@ -5,9 +5,9 @@
         <div class = search_wap>
         <%= search_form_for @search, url: search_rules_path do |f|%>
             <%= f.text_field :if_rule_cont , placeholder: "キーワードで検索！", class: 'input'%>
-            <button_tag type= 'submit' class='search__button icon_wap'>
+            <button type= 'submit' class='search__button icon_wap'>
                 <i class = "fas fa-search"></i>
-            <button_tag>
+            </button>
         <% end %>
         </div>
     </div>
