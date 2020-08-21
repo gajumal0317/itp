@@ -12,7 +12,7 @@
     </div>
     <div class="form-group"> 
         <h5><%= f.label :master, 'status' %></h5>
-        <%=  f.select :master, [['challenging',0],['master',1]], {}, class: 'form-control', id: 'rule_master'%>        
+        <%=  f.select :master, [['挑戦中',0],['習得',1]], {}, class: 'form-control', id: 'rule_master'%>        
     </div>
     
     <%= f.submit 'ルールを更新', class: 'btn btn-primary btn-block' %>
