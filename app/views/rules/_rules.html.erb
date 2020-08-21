@@ -2,7 +2,8 @@
   <% rules.each do |rule| %>
     <li class="card rule-bottom">
       <h7 class="card-header">
-        <%= link_to rule.user.name, user_path(rule.user) %> <span class="text-muted">created at <%= rule.created_at %></span>
+        <%= link_to rule.user.name, user_path(rule.user) %> <span class="text-muted"><%= rule.created_at %></span>
+        <% if current_user == rule.user %>
         <div class="right_box">
           <div class="dropdown dropright">
             <button type="button" class="btn btn-outline-secondary dropdown-toggle btn-sm" data-toggle="dropdown"></button>
@@ -12,6 +13,7 @@
                 </ul>
           </div>
         </div>
+        <% end %>
       </h7>
       <div class="card-body rule-body">
         <h5>if</h5>

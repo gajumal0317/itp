@@ -1,15 +1,20 @@
 <div class="elements-bg">
 <div class="elements">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item"><a href="<%= user_path(current_user) %>" class="nav-link-test">挑戦中 </a></li>
+      <li class="nav-item"><a href="<%= master_path(current_user) %>" class="nav-link-test">習得 </a></li>
+      <li class="nav-item"><a href="<%= rules_path %>" class="nav-link-test <%= 'active' if current_page?(search_rules_path) %>">ルールを探す </a></li>
+      <li class="nav-item"><a href="<%= new_rule_path(current_user) %>" class="nav-link-test <%= 'active' if current_page?(new_rule_path(current_user)) %>">ルールを作る </a></li>
+    </ul>
     <div style="text-align: center;">
-        <h2>検索結果</h2> 
         <div class = search_wap>
         <%= search_form_for @search, url: search_rules_path do |f|%>
-            <%= f.text_field :if_rule_cont , placeholder: "キーワードで検索！", class: 'input'%>
+        <%= f.text_field :if_rule_cont , placeholder: "キーワードで検索！", class: 'input'%>
             <button type= 'submit' class='search__button icon_wap'>
                 <i class = "fas fa-search"></i>
             </button>
         <% end %>
-        </div>
+        </div>    
     </div>
 <div class="card-body">
     <%= render 'rules/rules', rules: @search_rules %> 

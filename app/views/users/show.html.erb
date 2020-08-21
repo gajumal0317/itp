@@ -1,10 +1,10 @@
 <div class="elements-bg">
 <div class="elements">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link-test <%= 'active' if current_page?(user_path(@user)) %>">Challenging <span class="badge badge-primary"><%= @count_challenging_rules %></span></a></li>
-      <li class="nav-item"><a href="<%= master_path(@user) %>" class="nav-link-test <%= 'active' if current_page?(master_path(@user)) %>">Master <span class="badge badge-primary"><%= @count_master_rules %></span></a></li>
-      <li class="nav-item"><a href="<%= rules_path %>" class="nav-link-test">Others rules</a></li>
-      <li class="nav-item"><a href="<%= new_rule_path(current_user) %>" class="nav-link-test">New rule</a></li>
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link-test <%= 'active' if current_page?(user_path(@user)) %>">挑戦中 <span class="badge badge-primary"><%= @count_challenging_rules %></span></a></li>
+      <li class="nav-item"><a href="<%= master_path(@user) %>" class="nav-link-test <%= 'active' if current_page?(master_path(@user)) %>">習得 <span class="badge badge-primary"><%= @count_master_rules %></span></a></li>
+      <li class="nav-item"><a href="<%= rules_path %>" class="nav-link-test">ルールを探す</a></li>
+      <li class="nav-item"><a href="<%= new_rule_path(current_user) %>" class="nav-link-test">ルールを作る</a></li>
     </ul>
     <div class="card rule-bg">
       <%= render 'rules/rules', rules: @rules.where(master: 0) %> 
