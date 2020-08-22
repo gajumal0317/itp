@@ -1,3 +1,3 @@
 $(function(){
-  setTimeout("$('.alert-test').hide()", 2000); 
+  setTimeout("$('.alert-test').hide()", 4000); 
 });

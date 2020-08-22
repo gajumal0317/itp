@@ -2,7 +2,7 @@
   <% rules.each do |rule| %>
     <li class="card rule-bottom">
       <h7 class="card-header">
-        <%= link_to rule.user.name, user_path(rule.user) %> <span class="text-muted"><%= rule.created_at %></span>
+        <%= link_to rule.user.name, user_path(rule.user) %> <span class="text-muted"><%= rule.created_at.to_s(:datetime_jp) %> 作成</span>
         <% if current_user == rule.user %>
         <div class="right_box">
           <div class="dropdown dropright">

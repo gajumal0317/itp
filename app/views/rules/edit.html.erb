@@ -1,5 +1,11 @@
 <div class="elements-bg">
 <div class="elements">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item"><a href="<%= user_path(current_user) %>" class="nav-link-test">挑戦中 </a></li>
+      <li class="nav-item"><a href="<%= master_path(current_user) %>" class="nav-link-test">習得 </a></li>
+      <li class="nav-item"><a href="<%= rules_path %>" class="nav-link-test <%= 'active' if current_page?(rules_path) %>">ルールを探す </a></li>
+      <li class="nav-item"><a href="<%= new_rule_path(current_user) %>" class="nav-link-test <%= 'active' if current_page?(new_rule_path(current_user)) %>">ルールを作る </a></li>
+    </ul>
 <%= form_with(model: @rule, local: true) do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
     <div class="form-group">

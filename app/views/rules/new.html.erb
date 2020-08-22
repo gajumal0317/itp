@@ -7,6 +7,7 @@
       <li class="nav-item"><a href="<%= new_rule_path(current_user) %>" class="nav-link-test <%= 'active' if current_page?(new_rule_path(current_user)) %>">ルールを作る </a></li>
     </ul>
 <%= form_with(model: @rule, local: true) do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
     <div class="form-group">
         <h5><%= f.label :if_rule, 'if' %></h5>
         <%= f.text_area :if_rule, class: 'form-control', rows:2 %>
