@@ -2,7 +2,7 @@
   <% rules.each do |rule| %>
     <li class="card rule-bottom">
       <h7 class="card-header">
-        <%= link_to rule.user.name, user_path(rule.user) %> <span class="text-muted"><%= rule.created_at.to_s(:datetime_jp) %> 作成</span>
+        <%= link_to rule.user.name, user_path(rule.user) %><span class="text-muted"><%= rule.created_at.to_s(:datetime_jp) %> 作成</span>
         <% if current_user == rule.user %>
         <div class="right_box">
           <div class="dropdown dropright">
@@ -18,21 +18,22 @@
       <div class="card-body rule-body">
         <h5>if</h5>
         <div class="card">
-          <div class="card-body">
-            <%= rule.if_rule %>
+          <div class="card-body rule-ifthen-padding">
+            <%=safe_join(rule.if_rule.split("\n"),tag(:br))%>
           </div>
         </div>
         <h5>then</h5>
         <div class="card">
-          <div class="card-body">
-            <%= rule.then_rule %>
+          <div class="card-body rule-ifthen-padding">
+            <%=safe_join(rule.then_rule.split("\n"),tag(:br))%>
           </div>
         </div>
-            <div class="flex_test">
-                <div><%= render 'favorites/favorite_button', rule: rule%></div>
-                <div class="badge badge-primary align-self-center"><%= Favorite.where(rule_id: rule.id).count %></div>
-                
-            </div>
+        <div class="flex_test">
+            <%= render 'favorites/favorite_button', rule: rule%>
+            <span class="badge badge-primary align-self-center"><%= Favorite.where(rule_id: rule.id).count %></span>
+            
+        </div>
+        <span class="challenging-master-button"><%= render 'rules/master_button', rule: rule%></span>
       </div>
     </li> 
   <% end %>

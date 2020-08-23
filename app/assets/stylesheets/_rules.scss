@@ -6,6 +6,12 @@
    padding: 5px 20px 0px 20px;
 }
 
+.rule-ifthen-padding{
+    padding: 5px;
+    text-align: center;
+}
+
+
  .right_box {
     float: right;      
 } 
@@ -13,4 +19,29 @@
  .flex_test {
     display: flex;      
     width: 8px;
+}
+
+.challenging-master-button {
+    float: right;
+    margin-top: -38px;
+    
+}
+
+.master-button {
+    color: white;
+    background-color: lightsalmon;
+}
+
+.master-button:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.challenging-button {
+    color: white;
+    background-color: cornflowerblue;
+}
+.challenging-button:hover {
+    color: #fff;
+    text-decoration: none;
 }

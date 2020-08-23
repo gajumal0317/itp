@@ -1,0 +1,12 @@
+<% if rule.master == 0 %>
+    <%= form_with(model: rule, local: true) do |f| %>
+        <%=f.hidden_field :master,:value => 1, id: 'rule_master' %> 
+        <%= f.submit '習得した！', class: 'btn btn-sm master-button' %>
+    <% end %>
+<% else %>
+    <%= form_with(model: rule, local: true) do |f| %>
+        <%=f.hidden_field :master,:value => 0, id: 'rule_master' %> 
+        <%= f.submit '挑戦中に戻す', class:  'btn btn-sm challenging-button' %>
+    <% end %>
+<% end %>
+    
